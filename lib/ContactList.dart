@@ -71,32 +71,45 @@ void dispose(){
           decoration: InputDecoration(
           hintText: 'Mehedi',
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(5)
-            )
+              borderRadius: BorderRadius.circular(4),
+            ),
 
       ),
       ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 32),
             TextFormField(
               controller: phoneController,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
                 hintText: '01750763767',
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(4),
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 12),
             SizedBox(
               width: double.infinity,
-              height: 32,
-              child: ElevatedButton(onPressed: (){},
+              height: 40,
+              child: ElevatedButton(onPressed: addContact,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueGrey,
-                    foregroundColor: Colors.white
+                    foregroundColor: Colors.white,
                   ),
-                  child: const Text('Add')
+                  child:  Container(
+                    width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.blueGrey,
+                      ),
+
+                      child: const Center(
+                        child: Text('Add',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                          textAlign: TextAlign.justify,
+                        ),
+                      )),
               ),
             ),
             Expanded(child: ListView.builder(
@@ -105,7 +118,7 @@ void dispose(){
                   final contact = contacts[index];
 
                   return Container(
-                    margin: const EdgeInsets.only(bottom: 7),
+                    margin: const EdgeInsets.only(bottom: 8),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 10,
                       vertical: 8,
@@ -136,8 +149,15 @@ void dispose(){
                                 Text(
                                   contact['name']!,
                                   style: const TextStyle(
-                                    color: Colors.grey,
+                                    color: Colors.brown,
                                     fontSize: 14,
+                                  ),
+                                ),
+                                Text(
+                                  contact['phone']!,
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 12,
                                   ),
                                 )
                               ],
@@ -156,7 +176,7 @@ void dispose(){
                           icon:  const Icon(
                           Icons.call,
                           color: Colors.blue,
-                          size: 23,
+                          size: 30,
                         ),
                         ),
                       ],
